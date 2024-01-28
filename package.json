@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "leaflet": "^1.9.4",
+    "leaflet-providers": "^2.0.0",
+    "node-fetch": "^2.6.5"
+  },
+  "name": "insa_ass2_backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./ass_2/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
