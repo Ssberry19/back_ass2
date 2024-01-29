@@ -7,10 +7,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Information</title>
+  <script src="./weather.js" defer></script>
+
 </head>
 <body>
   <h1>Real-Time Weather Information</h1>
-  
+
+  <!-- Search Form -->
+  <form id="searchForm">
+    <label for="cityInput">Enter City:</label>
+    <input type="text" id="cityInput" name="city" placeholder="Enter city name">
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Display weather information here -->
+  <div id="weatherInfo">
+    <p id="temperature"></p>
+    <p id="description"></p>
+  </div>
+
+  <!--
   <% if (data) { %>
     <p>Temperature: <%= data.main.temp %> K</p>
     <p>Description: <%= data.weather[0].description %></p>
@@ -24,6 +40,6 @@
   <% } else { %>
     <p>No weather data available</p>
   <% } %>
-
+-->
 </body>
 </html>

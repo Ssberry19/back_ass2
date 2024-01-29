@@ -1,4 +1,5 @@
-
+//app.js
+const path = require('path')
 const express = require('express');
 const fetch = require('node-fetch');
 
@@ -6,12 +7,17 @@ const app = express();
 const port = 3000;
 require('dotenv').config();
 
+app.use('/', express.static(path.join(__dirname, "/public")));
 app.set('view engine', 'ejs');
+
+
 
 app.get('/', async (req, res) => {
   try {
     const apiKey = process.env.OPENWEATHER_API_KEY;
-    const city = 'London'; // Replace with your desired city
+    
+    // Retrieve the city from the query parameter, defaulting to 'London'
+    const city = req.query.city || 'London';
 
     // Construct the OpenWeatherAPI URL
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
@@ -19,8 +25,11 @@ app.get('/', async (req, res) => {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    res.render('index', { data });
+    console.log('API Data:', data); // Log the entire data object
+    /*console.log('Temperature:', data.main.temp);
+    console.log('Description:', data.weather[0].description);*/
 
+    res.render('index', { data });
   } catch (error) {
     console.error('Error fetching data:', error);
     console.error(error.stack); 
@@ -28,7 +37,7 @@ app.get('/', async (req, res) => {
   }  
 });
 
-app.use('/leaflet', express.static('node_modules/leaflet/dist'));
+
 
 // Start the server
 app.listen(port, () => {
