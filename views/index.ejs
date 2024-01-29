@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Information</title>
-  <script src="./weather.js" defer></script>
-
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css"/>
 </head>
 <body>
   <h1>Real-Time Weather Information</h1>
@@ -20,26 +21,28 @@
     <button type="submit">Search</button>
   </form>
 
-  <!-- Display weather information here -->
-  <div id="weatherInfo">
-    <p id="temperature"></p>
-    <p id="description"></p>
-  </div>
-
-  <!--
+  
   <% if (data) { %>
-    <p>Temperature: <%= data.main.temp %> K</p>
+    <p>Temperature: <%= data.main.temp %> </p>
     <p>Description: <%= data.weather[0].description %></p>
     <p>Icon: <img src="http://openweathermap.org/img/w/<%= data.weather[0].icon %>.png" alt="Weather Icon"></p>
-    <p>Coordinates: <%= data.coord.lat %>, <%= data.coord.lon %></p>
-    <p>Feels Like: <%= data.main.feels_like %> K</p>
+    <p class = "coords">Coordinates: <%= data.coord.lat %>, <%= data.coord.lon %></p>
+    <p>Feels Like: <%= data.main.feels_like %></p>
     <p>Humidity: <%= data.main.humidity %> %</p>
     <p>Pressure: <%= data.main.pressure %> hPa</p>
     <p>Wind Speed: <%= data.wind.speed %> m/s</p>
     <p>Country Code: <%= data.sys.country %></p>
+    <p>Temp Max: <%= data.main.temp_max %></p>
+
+    <div id="map">
+    </div>
+    
   <% } else { %>
     <p>No weather data available</p>
   <% } %>
--->
+
+
+  <script src="./map.js" defer></script>
+
 </body>
 </html>

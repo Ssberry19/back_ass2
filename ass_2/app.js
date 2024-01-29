@@ -7,10 +7,11 @@ const app = express();
 const port = 3000;
 require('dotenv').config();
 
-app.use('/', express.static(path.join(__dirname, "/public")));
+app.use('/', express.static(path.join(__dirname, "/views")));
+
 app.set('view engine', 'ejs');
 
-
+app.use(express.static("public"));
 
 app.get('/', async (req, res) => {
   try {
@@ -20,14 +21,13 @@ app.get('/', async (req, res) => {
     const city = req.query.city || 'London';
 
     // Construct the OpenWeatherAPI URL
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     const response = await fetch(apiUrl);
     const data = await response.json();
 
     console.log('API Data:', data); // Log the entire data object
-    /*console.log('Temperature:', data.main.temp);
-    console.log('Description:', data.weather[0].description);*/
+ 
 
     res.render('index', { data });
   } catch (error) {
