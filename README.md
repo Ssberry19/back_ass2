@@ -1,7 +1,7 @@
 # Weather App
 
 ## Overview
-This is a web application that provides weather information, location details, and postal code and weather for the last 7 days to a specific city. The app uses OpenWeatherMap API, Geocoding API for location details, and NewsAPI for news articles.
+This is a web application that provides weather information, location details, and postal code and weather for the last 7 days to a specific city. The app uses OpenWeatherMap API, Geocoding API for location details, and WEATHERBIT_API for historic data.
 
 ## Features
 - Display current weather information (temperature, rain volume) for a given city.
