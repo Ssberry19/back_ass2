@@ -10,7 +10,7 @@ This is a web application that provides weather information, location details, a
 - Present weather for the last 7 days to a specific city.
 
 ## Getting Started
-1. Clone the repository: git clone https://github.com/Dias-Zhaga/weather-app.git
+1. Clone the repository: git clone https://github.com/Ssberry19/back_ass2.git
 2. Install dependencies: npm install
 3. Create a .env file in the root directory with the following keys:
 4. Start the application: npm start
