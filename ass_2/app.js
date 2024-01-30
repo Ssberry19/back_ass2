@@ -17,18 +17,22 @@ app.get('/', async (req, res) => {
   try {
     const apiKey = process.env.OPENWEATHER_API_KEY;
     
-    // Retrieve the city from the query parameter, defaulting to 'London'
-    const city = req.query.city || 'London';
+    const city = req.query.city || 'Astana';
 
-    // Construct the OpenWeatherAPI URL
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    console.log('API Data:', data); // Log the entire data object
+    console.log('API Data:', data); 
  
+    /*const historicalWeatherUrl = `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${data.coord.lat}&lon=${data.coord.lon}&dt=${Math.floor(Date.now() / 1000) - 10800}&appid=${apiKey}&units=metric`;
+    const historicalWeatherResponse = await fetch(historicalWeatherUrl);
+    const historicalWeatherData = await historicalWeatherResponse.json();
+    console.log('Historical Weather Data:', historicalWeatherData);
+    res.render('index', { data: historicalWeatherData });*/
 
+    
     res.render('index', { data });
   } catch (error) {
     console.error('Error fetching data:', error);
